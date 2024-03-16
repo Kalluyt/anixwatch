@@ -1,0 +1,325 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #fff;
+}
+
+.toolbar {
+    
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 37px;/* Ensure the toolbar is above other content */
+}
+
+.toolbar-left {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'CustomBold', sans-serif;
+}
+
+.toolbar-right img {
+    width: 20px;
+    height: 20px;
+    margin-right: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 70px auto 10px; /* Add 70px top margin to create space for the toolbar */
+    padding: 10px;
+    background-color: transparent; /* Invisible background color */
+    backdrop-filter: blur(10px);
+    z-index: 999; /* Ensure the container is below the toolbar */
+}
+
+.poster {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 250px;
+    max-height: 250px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.poster-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    color: #fff;
+    border-radius: 0 0 20px 20px;
+    z-index: 1; /* Place the text above the image */
+}
+
+.poster-text p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.poster-text .title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 8px;
+    -webkit-text-stroke: 0.2px black; /* For webkit browsers */
+    font-family: 'CustomBold', sans-serif; /* Standard property */
+}
+
+.poster-text .description {
+    font-style: normal;
+    font-size: 13px;
+    color: #fff;
+    font-family: 'MMedium', sans-serif;
+    -webkit-text-stroke: 0.2px black;
+}
+
+.poster::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Height of the gradient */
+    background: linear-gradient(transparent, rgba(0, 0, 0, 1)); /* Gradient from transparent to black */
+    z-index: 0; /* Place the gradient below the text */
+}
+
+.new-releases {
+    margin-top: 20px;
+    background-color: transparent; /* Invisible background color */
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.new-releases h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-family: 'CustomBold', sans-serif;
+}
+
+.new-release-list {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+.new-release-list::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.new-releases {
+    margin-top: 20px;
+    background-color: transparent; /* Invisible background color */
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.new-releases h2 {
+   
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-family: 'CustomBold', sans-serif;
+}
+
+.new-release-list {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+.new-release-list::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.new-release {
+    flex: 0 0 auto;
+    width: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-release img {
+    width: 70%;
+    height: 190px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.new-release-content {
+    background-color: transparent; /* Invisible background color */
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+}
+
+.new-release h3 {
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'MSemiBold', sans-serif;
+}
+
+.warning-text-container {
+    padding: 10px;
+    height: 20px;
+    max-width: 100%;
+    background-color: rgba(255, 0, 0, 0.5); /* Red background color with opacity */
+    backdrop-filter: blur(10px); /* Background blur */
+    color: #fff; /* White text color */
+    border-radius: 10px;
+    display: flex;
+    align-items: center; /* Red glowing shadow with opacity */
+}
+
+.warning-text-container img {
+    width: 13px; /* Adjust size as needed */
+    height: 13px; /* Adjust size as needed */
+    margin-right: 7px;
+    filter: brightness(0) invert(1); /* Force the image to be white */
+}
+
+.warning-text-container p {
+    margin: 0;
+    font-size: 10px;
+    font-family: 'MMedium', sans-serif;/* Smaller font size */
+}
+
+.bottom-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 1000;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px 20px 0 0; /* Rounded top corners */
+}
+
+.bottom-navigation a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    position: relative;
+    font-family: 'MSemiBold', sans-serif;
+}
+
+.bottom-navigation a img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s;
+    filter: brightness(0) invert(1);
+}
+
+.bottom-navigation a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px; /* Slightly thicker line */
+    background-color: transparent; /* Remove the green glow */
+    border-radius: 3px; /* Rounded edges */
+    transition: width 0.3s;
+}
+
+.bottom-navigation a.selected {
+    color: #4CAF50;
+}
+
+.bottom-navigation a.selected::after {
+    width: 100%;
+    background-color: #4CAF50;
+    box-shadow: 0 0 10px #4CAF50;
+    border-radius: 3px; /* Rounded edges */
+}
+
+.bottom-navigation a:hover {
+    color: #4CAF50;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bottom-navigation a:hover::after {
+    background-color: #4CAF50;
+    width: 100%;
+}
+
+.bottom-navigation a.selected::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #4CAF50;
+    }
+    100% {
+        box-shadow: 0 0 20px #4CAF50;
+    }
+}
+
+
+@font-face {
+    font-family: 'CustomBold';
+    src: url('/bold.otf') format('opentype');
+}
+@font-face {
+    font-family: 'MMedium';
+    src: url('/Metropolis-Medium.otf') format('opentype');
+}
+@font-face {
+    font-family: 'MRegular';
+    src: url('/Metropolis-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'MSemiBold';
+    src: url('/Metropolis-SemiBold.otf') format('opentype');
+}
