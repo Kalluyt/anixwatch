@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ngrok AuthToken</title>
+</head>
+<body>
+    <h1>Enter your Ngrok AuthToken</h1>
+    <form id="authForm">
+        <label for="authtoken">AuthToken:</label><br>
+        <input type="text" id="authtoken" name="authtoken" required><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <ul id="endpointList"></ul>
+
+    <script>
+        document.getElementById('authForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const authtoken = document.getElementById('authtoken').value;
+
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            const apiUrl = 'https://localhost:4040/api/tunnels';
+
+            fetch(proxyUrl + apiUrl, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest' // Required by the CORS proxy server
+                }
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log('Server response:', data);
+                    try {
+                        const jsonData = JSON.parse(data);
+                        const tunnels = jsonData.tunnels;
+                        const openEndpoints = tunnels.filter(tunnel => tunnel.config.auth === authtoken);
+                        const endpointList = document.getElementById('endpointList');
+                        endpointList.innerHTML = ''; // Clear previous list
+                        openEndpoints.forEach(endpoint => {
+                            const li = document.createElement('li');
+                            li.textContent = endpoint.public_url;
+                            endpointList.appendChild(li);
+                        });
+                    } catch (error) {
+                        console.error('Error parsing JSON:', error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching open endpoints:', error);
+                });
+        });
+    </script>
+</body>
+</html>
