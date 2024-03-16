@@ -308,18 +308,18 @@ body {
 
 @font-face {
     font-family: 'CustomBold';
-    src: url('/bold.otf') format('opentype');
+    src: url('/main/bold.otf') format('opentype');
 }
 @font-face {
     font-family: 'MMedium';
-    src: url('/Metropolis-Medium.otf') format('opentype');
+    src: url('/main/Metropolis-Medium.otf') format('opentype');
 }
 @font-face {
     font-family: 'MRegular';
-    src: url('/Metropolis-Regular.otf') format('opentype');
+    src: url('/main/Metropolis-Regular.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'MSemiBold';
-    src: url('/Metropolis-SemiBold.otf') format('opentype');
+    src: url('/main/Metropolis-SemiBold.otf') format('opentype');
 }
